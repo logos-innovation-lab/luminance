@@ -1,5 +1,5 @@
 {
-	"name": "luminance",
+	"name": "@waku-objects/luminance",
 	"version": "0.1.2",
 	"description": "Library for getting manipulating colors",
 	"main": "dist/index.js",
