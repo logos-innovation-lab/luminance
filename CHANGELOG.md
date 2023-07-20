@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/logos-innovation-lab/luminance/compare/v1.0.0...v1.1.0) (2023-07-20)
+
+
+### Features
+
+* extract-default-precision-and-steps1 ([#5](https://github.com/logos-innovation-lab/luminance/issues/5)) ([a2bdd79](https://github.com/logos-innovation-lab/luminance/commit/a2bdd79ff47672ba4cd8760ccd3f2c34c8d543ac))
+
 ## 1.0.0 (2023-07-20)
 
 
