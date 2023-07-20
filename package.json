@@ -1,0 +1,36 @@
+{
+	"name": "luminance",
+	"version": "0.1.2",
+	"description": "Library for getting manipulating colors",
+	"main": "dist/index.js",
+	"scripts": {
+		"prepublishOnly": "cross-env NODE_ENV=production npm run build",
+		"build": "rimraf dist && tsc -p tsconfig.json && npm run build:types",
+		"build:types": "tsc --emitDeclarationOnly --declaration --outDir dist/types",
+		"check:types": "tsc --project tsconfig.test.json",
+		"test:unit": "vitest",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"format": "prettier --plugin-search-dir . --write .",
+		"knip": "knip"
+	},
+	"author": "Logos Innovation Lab",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^18.11.9",
+		"@typescript-eslint/eslint-plugin": "^5.42.1",
+		"@typescript-eslint/parser": "^5.42.1",
+		"cross-env": "^7.0.3",
+		"eslint": "^8.27.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-unicorn": "^44.0.2",
+		"knip": "^2.16.0",
+		"prettier": "^2.8.0",
+		"rimraf": "^3.0.2",
+		"vitest": "^0.33.0"
+	},
+	"dependencies": {
+		"typescript": "^5.1.6"
+	}
+}

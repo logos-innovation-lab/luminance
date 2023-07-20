@@ -1,0 +1,41 @@
+name: Tests
+
+on:
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      NODE_VERSION: 18
+    strategy:
+      fail-fast: true
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Install dependenciess
+        run: pnpm install --frozen-lockfile
+
+      - name: Run tests
+        run: |
+          pnpm test:unit
+
+      - name: Run linting test
+        run: pnpm lint
+
+      - name: Run knip check
+        run: pnpm knip

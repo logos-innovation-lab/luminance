@@ -1,0 +1,28 @@
+# After new release is published on github, publish it to npmjs
+name: Publish on npmjs
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Install dependenciess
+        run: pnpm install --frozen-lockfile
+
+      - run: pnpm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
