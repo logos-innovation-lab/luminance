@@ -10,11 +10,14 @@ export interface HSL {
 	l: number
 }
 
-interface HUE {
+export interface HUE {
 	p: number
 	q: number
 	t: number
 }
+
+const DEFAULT_MAX_STEPS = 100
+const DEFAULT_TARGET_PRECISION = 0.01
 
 export function hexToRgb(hex: string): RGB {
 	const bigint = parseInt(hex.substring(1), 16)
@@ -119,8 +122,8 @@ export function calculateLuminance(rgbOrHex: RGB | string) {
 export function getClosestColor(
 	hex: string,
 	targetLuminance: number,
-	targetPrecision = 0.01,
-	maxSteps = 100
+	targetPrecision = DEFAULT_TARGET_PRECISION,
+	maxSteps = DEFAULT_MAX_STEPS
 ) {
 	return getClosestColorBisection(hex, targetLuminance, targetPrecision, maxSteps)
 }
@@ -128,8 +131,8 @@ export function getClosestColor(
 export function getClosestColorNewton(
 	hex: string,
 	targetLuminance: number,
-	targetPrecision = 0.01,
-	maxSteps = 100
+	targetPrecision = DEFAULT_TARGET_PRECISION,
+	maxSteps = DEFAULT_MAX_STEPS
 ) {
 	// 	// Just a shortcut for all colors these are 0 and 100 luminance
 	if (targetLuminance <= 0) return '#000000'
@@ -171,8 +174,8 @@ export function getClosestColorNewton(
 export function getClosestColorBisection(
 	hex: string,
 	targetLuminance: number,
-	targetPrecision = 0.01,
-	maxSteps = 100
+	targetPrecision = DEFAULT_TARGET_PRECISION,
+	maxSteps = DEFAULT_MAX_STEPS
 ) {
 	// Just a shortcut for all colors these are 0 and 100 luminance
 	if (targetLuminance <= 0) return '#000000'
