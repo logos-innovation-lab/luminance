@@ -1,4 +1,4 @@
-# logos-innovation-lab/luminance
+# @waku-objects/luminance
 
 [![Tests](https://github.com/logos-innovation-lab/luminance/actions/workflows/test.yml/badge.svg)](https://github.com/logos-innovation-lab/luminance/actions/workflows/test.yml)
 [![](https://img.shields.io/badge/made%20by-Logos%20Innovation%20Lab-blue.svg?style=flat-square)](https://github.com/logos-innovation-lab)
@@ -21,7 +21,7 @@
 ## Install
 
 ```sh
-pnpm install @logos-innovation-lab/luminance --save
+pnpm install @waku-objects/luminance --save
 ```
 
 ## Usage
