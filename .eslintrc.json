@@ -15,7 +15,6 @@
 			}
 		],
 		"no-duplicate-imports": "off",
-		"@typescript-eslint/no-duplicate-imports": ["error"],
 		"new-cap": "off",
 		"unicorn/filename-case": [
 			"error",
