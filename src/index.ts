@@ -101,9 +101,9 @@ function gammaCorrect(color: number) {
 	return color <= 0.03928 ? color / 12.92 : ((color + 0.055) / 1.055) ** 2.4
 }
 
-export function calculateLuminance(rgbOrHex: RGB | string) {
-	if (typeof rgbOrHex === 'string') rgbOrHex = hexToRgb(rgbOrHex)
-	let { r, g, b } = rgbOrHex
+export function calculateLuminance(sourceColor: RGB | string) {
+	if (typeof sourceColor === 'string') sourceColor = hexToRgb(sourceColor)
+	let { r, g, b } = sourceColor
 
 	// Normalized to values between 0 and 1
 	r /= 255
@@ -120,16 +120,16 @@ export function calculateLuminance(rgbOrHex: RGB | string) {
 }
 
 export function getClosestColor(
-	hex: string,
+	sourceColor: string | RGB,
 	targetLuminance: number,
 	targetPrecision = DEFAULT_TARGET_PRECISION,
 	maxSteps = DEFAULT_MAX_STEPS
 ) {
-	return getClosestColorBisection(hex, targetLuminance, targetPrecision, maxSteps)
+	return getClosestColorBisection(sourceColor, targetLuminance, targetPrecision, maxSteps)
 }
 
 export function getClosestColorNewton(
-	hex: string,
+	sourceColor: string | RGB,
 	targetLuminance: number,
 	targetPrecision = DEFAULT_TARGET_PRECISION,
 	maxSteps = DEFAULT_MAX_STEPS
@@ -138,7 +138,7 @@ export function getClosestColorNewton(
 	if (targetLuminance <= 0) return '#000000'
 	if (targetLuminance >= 1) return '#ffffff'
 
-	const hsl = rgbToHsl(hexToRgb(hex))
+	const hsl = rgbToHsl(typeof sourceColor === 'string' ? hexToRgb(sourceColor) : sourceColor)
 	const damping = 15 // Damping factor to avoid instability
 
 	for (let steps = 0; steps < maxSteps; ++steps) {
@@ -172,7 +172,7 @@ export function getClosestColorNewton(
 }
 
 export function getClosestColorBisection(
-	hex: string,
+	sourceColor: string | RGB,
 	targetLuminance: number,
 	targetPrecision = DEFAULT_TARGET_PRECISION,
 	maxSteps = DEFAULT_MAX_STEPS
@@ -181,7 +181,7 @@ export function getClosestColorBisection(
 	if (targetLuminance <= 0) return '#000000'
 	if (targetLuminance >= 1) return '#ffffff'
 
-	const hsl = rgbToHsl(hexToRgb(hex))
+	const hsl = rgbToHsl(typeof sourceColor === 'string' ? hexToRgb(sourceColor) : sourceColor)
 
 	let low = 0,
 		high = 1,
