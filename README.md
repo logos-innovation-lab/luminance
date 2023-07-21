@@ -26,6 +26,69 @@ pnpm install @waku-objects/luminance --save
 
 ## Usage
 
+```typescript
+import { calculateLuminance, getClosestColor } from '@waku-objects/luminance'
+
+// Calculate luminance of a color (luminance is between 0 and 1)
+calculateLuminance('#acacac') // supports hex
+calculateLuminance({ r: 200, g: 200, b: 200 }) // and RGB
+
+// Finds a color with the same hue that would fullfil target luminance
+getClosestColor('#ff0000', 0, 5) // returns #ffa2a2
+```
+
+List of all functions and interfaces:
+
+```typescript
+interface RGB {
+	r: number
+	g: number
+	b: number
+}
+interface HSL {
+	h: number
+	s: number
+	l: number
+}
+export interface HUE {
+	p: number
+	q: number
+	t: number
+}
+
+// Utility conversion functions
+function hexToRgb(hex: string): RGB
+function rgbToHex({ r, g, b }: RGB): string
+function hslToRgb({ h, s, l }: HSL): RGB
+function rgbToHsl({ r, g, b }: RGB): HSL
+
+// Calculate luminance
+function calculateLuminance(rgbOrHex: RGB | string): number
+
+// Find color with same hue that would be closest to a targetLuminance (uses bisection algorithm with at most 100 iterations)
+function getClosestColor(
+	hex: string,
+	targetLuminance: number,
+	targetPrecision?: number,
+	maxSteps?: number
+): string
+
+function getClosestColorBisection(
+	hex: string,
+	targetLuminance: number,
+	targetPrecision?: number,
+	maxSteps?: number
+): string
+
+// Implementation with newton itterative method, better results than bisection for more than 100 iterations
+function getClosestColorNewton(
+	hex: string,
+	targetLuminance: number,
+	targetPrecision?: number,
+	maxSteps?: number
+): string
+```
+
 ## License
 
 [MIT](./LICENSE)
