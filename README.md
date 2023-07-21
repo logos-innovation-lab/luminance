@@ -34,7 +34,8 @@ calculateLuminance('#acacac') // supports hex
 calculateLuminance({ r: 200, g: 200, b: 200 }) // and RGB
 
 // Finds a color with the same hue that would fullfil target luminance
-getClosestColor('#ff0000', 0, 5) // returns #ffa2a2
+getClosestColor('#ff0000', 0.5) // returns #ffa2a2
+getClosestColor({ r: 255, g: 0, b: 9 }, 0.5) // returns #ffa2a2
 ```
 
 List of all functions and interfaces:
