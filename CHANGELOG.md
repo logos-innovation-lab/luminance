@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/logos-innovation-lab/luminance/compare/v1.1.0...v1.2.0) (2023-07-21)
+
+
+### Features
+
+* add support for rgb object to getClosestColor ([#10](https://github.com/logos-innovation-lab/luminance/issues/10)) ([9937137](https://github.com/logos-innovation-lab/luminance/commit/9937137aac9ee38747536e26620d63caf5bb898d))
+
 ## [1.1.0](https://github.com/logos-innovation-lab/luminance/compare/v1.0.0...v1.1.0) (2023-07-20)
 
 
