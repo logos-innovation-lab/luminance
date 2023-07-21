@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/logos-innovation-lab/luminance/compare/v1.2.0...v2.0.0) (2023-07-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* typescript should be dev depency ([#13](https://github.com/logos-innovation-lab/luminance/issues/13))
+
+### Bug Fixes
+
+* expose types ([#16](https://github.com/logos-innovation-lab/luminance/issues/16)) ([9b155b3](https://github.com/logos-innovation-lab/luminance/commit/9b155b3d41ee5a87c9476880a3f021dfa5302b64))
+* typescript should be dev depency ([#13](https://github.com/logos-innovation-lab/luminance/issues/13)) ([738ca99](https://github.com/logos-innovation-lab/luminance/commit/738ca99db531e0a968c4c6ce968c8aa950c84c16))
+
 ## [1.2.0](https://github.com/logos-innovation-lab/luminance/compare/v1.1.0...v1.2.0) (2023-07-21)
 
 
