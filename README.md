@@ -59,23 +59,23 @@ export interface HUE {
 
 // Utility conversion functions
 function hexToRgb(hex: string): RGB
-function rgbToHex({ r, g, b }: RGB): string
-function hslToRgb({ h, s, l }: HSL): RGB
-function rgbToHsl({ r, g, b }: RGB): HSL
+function rgbToHex(rgb: RGB): string
+function hslToRgb(hsl: HSL): RGB
+function rgbToHsl(rgb: RGB): HSL
 
 // Calculate luminance
-function calculateLuminance(rgbOrHex: RGB | string): number
+function calculateLuminance(color: RGB | string): number
 
 // Find color with same hue that would be closest to a targetLuminance (uses bisection algorithm with at most 100 iterations)
 function getClosestColor(
-	hex: string,
+	sourceColor: string,
 	targetLuminance: number,
 	targetPrecision?: number,
 	maxSteps?: number
 ): string
 
 function getClosestColorBisection(
-	hex: string,
+	sourceColor: string,
 	targetLuminance: number,
 	targetPrecision?: number,
 	maxSteps?: number
@@ -83,7 +83,7 @@ function getClosestColorBisection(
 
 // Implementation with newton itterative method, better results than bisection for more than 100 iterations
 function getClosestColorNewton(
-	hex: string,
+	sourceColor: string,
 	targetLuminance: number,
 	targetPrecision?: number,
 	maxSteps?: number
