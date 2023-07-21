@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/logos-innovation-lab/luminance/compare/v2.0.0...v2.0.1) (2023-07-21)
+
+
+### Bug Fixes
+
+* indicate this is ES Module and not transpiled to Common JS ([#17](https://github.com/logos-innovation-lab/luminance/issues/17)) ([40484a4](https://github.com/logos-innovation-lab/luminance/commit/40484a404f44ec12c8083ab11df0b3b78a5d6b8d))
+
 ## [2.0.0](https://github.com/logos-innovation-lab/luminance/compare/v1.2.0...v2.0.0) (2023-07-21)
 
 
